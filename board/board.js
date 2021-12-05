@@ -19,6 +19,24 @@ router.route('/write')
         }
     });
 
+// 게시글 보기
+router.get('/:id',async (req,res,next) => {
+    try {
+        const post = await Post.findOne({
+            where: { id:req.params.id },
+            attributes:['title','body', 'createdAt'],
+        });
+        var Str = post.createdAt;
+        var date = Str.toString().substring(0,25);
+        res.locals.dates = date;
+        res.render('show.ejs',{post:post});
+    }catch(err) {
+        console.error(err);
+        next(err);
+    }
+})
+
+
 // 게시글 편집 
 router.post('/edit',async(req,res,next) => {
     try {
