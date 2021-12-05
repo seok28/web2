@@ -49,6 +49,11 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req,res,next) => {
+    res.locals.isAuthenticated = req.isAuthenticated();
+    res.locals.currentUser = req.user;
+    next();
+})
 
 app.use('/member',member);
 app.use('/board',boardpost);
@@ -62,10 +67,10 @@ app.use('/',boardrouter);
 //     next();
 // });
 
-app.use((err, req, res, next) => {
-    console.error(err);
-    res.status(500).send(err);
-});
+// app.use((err, req, res, next) => {
+//     console.error(err);
+//     res.status(500).send(err);
+// });
 
 app.listen(app.get('port'), () => {
     console.log(app.get('port'), '번 포트에서 대기 중');
