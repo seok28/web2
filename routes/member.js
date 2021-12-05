@@ -4,6 +4,7 @@ const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const router = express.Router();
 
+// 회원가입
 router.get('/signup',(req, res)=>{
     res.render('signup.ejs');
 });
@@ -41,7 +42,7 @@ router.route('/signup')
         next(err);
     }
 });
-
+// 로그인 
 router.get('/login', (req,res)=>{
     res.render('login.ejs');
 });
@@ -57,7 +58,9 @@ router.get('/logout', (req, res, next) => {
     req.session.destroy();
     res.redirect('/');
 });
-
-
+// My Account
+router.get('/account',(req,res) => {
+    res.render('account.ejs');
+})
 
 module.exports = router;

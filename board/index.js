@@ -1,12 +1,13 @@
 const express = require('express');
 const {isLoggedIn} = require('../routes/helper');
+const {Post} = require('../models');
 const router = express.Router();
 
 
-router.get('/board', isLoggedIn,(req,res,next) => {
-    res.locals.user = req.user;
+router.get('/board', isLoggedIn,async(req,res,next) => {
     try {
-    res.render('board.ejs');
+    const posts = await Post.findAll({})
+    res.render('board.ejs',{posts:posts});
   }catch(err) {
       console.error(err);
       next(err);

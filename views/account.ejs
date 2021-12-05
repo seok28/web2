@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <%- include('./head') %>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <%- include('./nav') %>
+    <form id ="form" action="/member/login" method="post">
+
+        <div class="form-group row">
+          <label for="id" class="col-sm-3 col-form-label">ID</label>
+          <div class="col-sm-7">
+            <input type="text" id="id" name="id" value="<%=currentUser.id %>" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="password" class="col-sm-3 col-form-label">Password</label>
+          <div class="col-sm-7">
+            <input type="password" id="password" name="password" value="<%=currentUser.password %>" class="form-control">
+          </div>
+        </div>
+        <div class="form-group row">
+            <label for="name" class="col-sm-3 col-form-label">Name</label>
+            <div class="col-sm-7">
+              <input type="name" id="name" name="name" value="<%=currentUser.name %>" class="form-control">
+            </div>
+          </div>
+        
+          <div class = "form-group">
+              <button type = "submit" class="btn btn-primary"> 편집 </button>
+          </div>
+          </form>
+</body>
+</html>

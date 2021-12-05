@@ -57,8 +57,9 @@ app.use((req,res,next) => {
 
 app.use('/member',member);
 app.use('/board',boardpost);
-app.use('/',indexrouter);
 app.use('/',boardrouter);
+app.use('/',indexrouter);
+
 
 
 // app.use((req, res, next) => {
