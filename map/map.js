@@ -1,18 +1,9 @@
+// 네이버 지도 api 
 var mapOptions = {
     center: new naver.maps.LatLng(37.3595704, 127.105399),
     zoom: 10,
 };
 var map = new naver.maps.Map('map', mapOptions);
-
-
-const data = [
-    {
-        title: '대학교',
-        address:'한국성서대',
-        lat: '37.64886686994668',
-        lng: '127.06420729758642',
-    }
-];
 // 인포윈도우와 마커의 구분을 위해 빈 리스트 생성
 let markerList = [];
 let infowindowList = [];
@@ -30,6 +21,16 @@ const getClickMap = (i) => () => {
     const infowindow = infowindowList[i];
     infowindow.close();
 }
+const data = [
+    {
+        title: '대학교',
+        address:'한국성서대',
+        lat: '37.64886686994668',
+        lng: '127.06420729758642',
+    }
+];
+
+
 
 
 for(let i in data) {
