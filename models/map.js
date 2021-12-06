@@ -22,8 +22,8 @@ module.exports = class Map extends Sequelize.Model {
     }, {
       sequelize,
       timestamps: false,
-      modelName: 'Post',
-      tableName: 'posts',
+      modelName: 'Map',
+      tableName: 'maps',
       paranoid: false,
       charset: 'utf8mb4',
       collate: 'utf8mb4_general_ci',
