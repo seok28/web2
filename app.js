@@ -15,7 +15,9 @@ const boardrouter = require('./board');
 const boardpost = require('./board/board');
 const indexrouter = require('./routes');
 const member = require('./routes/member');
-
+const mapindex = require('./map');
+// const maprouter = require('./map/map');
+// const upload = require('./map/upload');
 
 dotenv.config();
 passportConfig();
@@ -33,6 +35,7 @@ sequelize.sync({ force: false })
 app.use(
     morgan('dev'),
     express.static(path.join(__dirname, 'public')),
+    express.static(path.join(__dirname, 'map')),
     express.json(),
     express.urlencoded({ extended: false }),
     cookieParser(process.env.SECRET),
@@ -59,9 +62,11 @@ app.use((req,res,next) => {
 
 app.use('/member',member);
 app.use('/board',boardpost);
+// app.use('/upload',upload);
+// app.use('/map',maprouter);
 app.use('/',boardrouter);
 app.use('/',indexrouter);
-
+app.use('/',mapindex);
 
 
 // app.use((req, res, next) => {
@@ -74,7 +79,6 @@ app.use('/',indexrouter);
 //     console.error(err);
 //     res.status(500).send(err);
 // });
-
 app.listen(app.get('port'), () => {
     console.log(app.get('port'), '번 포트에서 대기 중');
 });

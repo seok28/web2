@@ -1,4 +1,36 @@
+/* nav css */
 body {
     font-family: 'Open Sans', sans-serif;
   }
+ ul {
+     background-color: white;
+ }
+
+ ul.back {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+ }
+
+ .map{
+    display: block;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    padding: 14px 16px;
+    float: left;
+ }
+.active {
+    display: block;
+    color:white;
+    text-decoration: none;
+    text-align: center;
+    background-color: black;
+}
+
+li a:hover:not(.active) {
+    background-color:white;
+}
+
  
