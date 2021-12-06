@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+var methodOverride = require('method-override');
 const ejs = require('ejs');
 const { sequelize } = require('./models');
 
@@ -48,6 +49,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(methodOverride('_method'));
 
 app.use((req,res,next) => {
     res.locals.isAuthenticated = req.isAuthenticated();
