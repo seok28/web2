@@ -13,7 +13,6 @@ const sequelize = new Sequelize(
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
-db.sequelize = sequelize;
 
 db.User = User;
 db.Post = Post;
