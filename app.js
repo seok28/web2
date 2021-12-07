@@ -15,9 +15,8 @@ const boardrouter = require('./board');
 const boardpost = require('./board/board');
 const indexrouter = require('./routes');
 const member = require('./routes/member');
-const mapindex = require('./map');
-// const maprouter = require('./map/map');
-// const upload = require('./map/upload');
+const maprouter = require('./map/map');
+const upload = require('./map/upload');
 
 dotenv.config();
 passportConfig();
@@ -63,9 +62,8 @@ app.use((req,res,next) => {
 
 app.use('/member',member);
 app.use('/board',boardpost);
-// app.use('/upload',upload);
-// app.use('/map',maprouter);
-app.use('/',mapindex);
+app.use('/upload',upload);
+app.use('/map',maprouter);
 app.use('/',boardrouter);
 app.use('/',indexrouter);
 

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-module.exports = class Map extends Sequelize.Model {
+module.exports = class Mapinfo extends Sequelize.Model {
   static init(sequelize) {
     return super.init({
       title: {
@@ -22,8 +22,8 @@ module.exports = class Map extends Sequelize.Model {
     }, {
       sequelize,
       timestamps: false,
-      modelName: 'Map',
-      tableName: 'maps',
+      modelName: 'Mapinfo',
+      tableName: 'mapinfo',
       paranoid: false,
       charset: 'utf8mb4',
       collate: 'utf8mb4_general_ci',
@@ -31,6 +31,6 @@ module.exports = class Map extends Sequelize.Model {
   }
 
   static associate(db) {
-    db.Map.belongsTo(db.User, { foreignKey: 'userId', targetKey: 'id' });
+    db.Mapinfo.belongsTo(db.User, { foreignKey: 'userId', targetKey: 'id' });
   }
 };

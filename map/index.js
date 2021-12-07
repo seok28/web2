@@ -1,12 +1,6 @@
-const express = require('express');
-const router = express.Router();
+var mapOptions = {
+    center: new naver.maps.LatLng(37.3595704, 127.105399),
+    zoom: 10,
+};
+var map = new naver.maps.Map('map', mapOptions);
 
-router.get('/map', (req,res,next) => {
-    res.render('map.ejs');
- });
-
- router.get('/upload',(req,res,next) => {
-    res.render('upload.ejs');
-});
-
-module.exports = router;
