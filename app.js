@@ -25,8 +25,9 @@ passportConfig();
 const app = express();
 app.set('port', process.env.PORT || 3000);
 
-app.set('views engine', 'ejs');
 
+
+app.set('views engine', 'ejs'),
 
 sequelize.sync({ force: false })
   .then(() => {})
@@ -64,9 +65,10 @@ app.use('/member',member);
 app.use('/board',boardpost);
 // app.use('/upload',upload);
 // app.use('/map',maprouter);
+app.use('/',mapindex);
 app.use('/',boardrouter);
 app.use('/',indexrouter);
-app.use('/',mapindex);
+
 
 
 // app.use((req, res, next) => {
