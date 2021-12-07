@@ -27,7 +27,7 @@ app.set('port', process.env.PORT || 3000);
 
 
 
-app.set('views engine', 'ejs'),
+app.set('views engine', 'ejs');
 
 sequelize.sync({ force: false })
   .then(() => {})
