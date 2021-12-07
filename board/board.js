@@ -64,7 +64,7 @@ router.post('/:id',async(req,res,next) => {
         }, {
             where: { id: req.params.id }
         });
-        // res.render('edit.ejs',{post:post});
+        
         if (post) res.redirect('/board');
         else next('Not updated!')
     } catch(err) {
@@ -79,7 +79,6 @@ router.delete('/:id', async(req,res,next) => {
     try {    
     const post = await Post.destroy({
         where : { id:req.params.id},
-        // attributes:['id','title','body', 'createdAt']
     });
     if(post) res.redirect('/board')
     else next ('삭제되지 않았습니다');
