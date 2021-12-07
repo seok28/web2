@@ -40,7 +40,7 @@ router.get('/:id',async (req,res,next) => {
 // 게시글 편집(서버 전달)
 // router.get('/:id/edit',async(req,res,next) => {
 //     try {
-//         const post = await Post.update({
+//         const post = await Post.findOne({
 //             id: req.body.id,
 //             title: req.body.title,
 //             body: req.body.body,
@@ -55,7 +55,7 @@ router.get('/:id',async (req,res,next) => {
 //         next(err);
 //     }
 // });
-
+// 게시글 편집 
 router.route('/:id/edit')
     .get(async(req,res) => {
         const post = await Post.findAll({});
