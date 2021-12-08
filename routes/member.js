@@ -36,7 +36,7 @@ router.route('/signup')
             password : hash,
             name
         });
-        res.redirect('/');
+        res.redirect('/member/login');
     }catch(err) {
         console.error(err);
         next(err);
