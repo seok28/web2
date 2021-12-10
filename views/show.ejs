@@ -36,7 +36,7 @@
         
         <div class="mt-3">
           <a class="btn btn-primary" href="/board">이전</a>
-          <a class="btn btn-primary" href="/board/<%= post.id %>/edit">편집</a>
+          <a class="btn btn-primary" href="/board/edit/<%= post.id %>">편집</a>
           <form action="/board/<%= post.id %>?_method=delete" method="post" class="d-inline">
             <a class="btn btn-primary" href="javascript:void(0)" onclick="confirm('정말로 삭제하시겠습니까?')?this.parentElement.submit():null;">삭제</a>
           </form>

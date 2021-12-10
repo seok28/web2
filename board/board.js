@@ -38,13 +38,9 @@ router.get('/:id',async (req,res,next) => {
 
 
 // 게시글 편집(서버 전달)
-router.get('/:id/edit',async(req,res,next) => {
+router.get('/edit/:id', async(req,res,next) => {
     try {
         const post = await Post.findOne({
-            id: req.body.id,
-            title: req.body.title,
-            body: req.body.body,
-        }, {
             where: { id: req.params.id }
         });
         res.render('edit.ejs',{post:post});
@@ -56,13 +52,14 @@ router.get('/:id/edit',async(req,res,next) => {
 
 // 게시글 편집 (서버에 전달된 정보를 DB에서 수정)
 router.post('/:id',async(req,res,next) => {
+    const {id,title,body} = req.body;
     try {
         const post = await Post.update({
-            id: req.body.id,
-            title: req.body.title,
-            body: req.body.body,
+            id,
+            title,
+            body,
         }, {
-            where: { id: req.params.id }
+            where: { id:req.params.id }
         });
         
         if (post) res.redirect('/board');
